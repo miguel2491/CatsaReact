@@ -1,0 +1,61 @@
+body{
+    background-image: url('https://static.pexels.com/photos/414171/pexels-photo-414171.jpeg') !important;
+    background-size: cover;
+    -webkit-animation: slidein 100s;
+    animation: slidein 100s;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    -webkit-animation-direction: alternate;
+    animation-direction: alternate;
+    font-family: 'UnisonProBoldRound';
+}
+#bgD{
+    padding-right:0px !important;
+}
+@-webkit-keyframes slidein {
+    from {
+        background-position: top;
+        background-size: 3000px;
+    }
+
+    to {
+        background-position: -100px 0px;
+        background-size: 2750px;
+    }
+}
+
+@keyframes slidein {
+    from {
+        background-position: top;
+        background-size: 3000px;
+    }
+
+    to {
+        background-position: -100px 0px;
+        background-size: 2750px;
+    }
+}
+.img-fluid{
+    width: 110px; margin-top: 25px; margin-left: 99px; 
+}
+#logo{
+    animation: App-logo-spin infinite 5s linear;
+}
+.eula {
+    color: #999;
+    font-size: 14px;
+    line-height: 1.5;
+    margin: 23px;
+    text-align: center;
+}
+
+@keyframes App-logo-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
