@@ -59,3 +59,22 @@ body{
       transform: rotate(360deg);
     }
   }
+
+  /* Mobile */
+.fcorreo {
+    margin-top: 30%;
+}
+
+/* Tablet */
+@media (min-width:600px) {
+    .fcorreo {
+        margin-top: 10%;
+    }
+}
+
+/* Desktop */
+@media (min-width:900px) {
+    .fcorreo {
+        margin-top: 10%;
+    }
+}

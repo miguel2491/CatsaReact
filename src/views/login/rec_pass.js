@@ -14,7 +14,9 @@ import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
+import Spinner from 'react-bootstrap/Spinner';
 import '../login/login.css'
+
 function Rec_pass(props)
 {
     const MySwal = withReactContent(Swal)
@@ -24,7 +26,10 @@ function Rec_pass(props)
     const [form, setForm]=useState({
         correo:'',
     });
-    
+    const [mostrar, setMostrar] = useState(true);
+    const ocultarElemento = () =>{
+        setMostrar(false);
+    }
     const handleChange=e=>{
         const {name, value} = e.target;
         setForm({
@@ -33,6 +38,12 @@ function Rec_pass(props)
         });
     }
     const EnviarCorreo=async()=>{
+        Swal.fire({
+            title: 'Cargando!',
+            text: 'Do you want to continue',
+            icon: 'success',
+            confirmButtonText: 'Cool'
+          })
         await axios.get(baseUrl+`/${form.correo}`)
         .then(response=>{
           return response.data;
@@ -66,16 +77,19 @@ function Rec_pass(props)
         
         .catch(error=>{
           console.log(error);
+          navigate("/");
         })     
       }  
     return (
         <>
         <ThemeProvider>
-            <Container style={{"margin-top":"15%","margin-left":"40%"}}>
+            <Container xs={10} md={10} className="mt-4">
                 <Row>
-                    <Col xs={4} md={4}>
+                    <Col md={4}></Col>
+                    <Col xs={12} md={4} className="fcorreo">
                         <Card style={{ border:'transparent','background':'#000054', "margin-left":"5%" }}>
                             <Card.Body>
+                                <Card.Img variant="top" src="./img/mail.png" style={{width:"180px", "margin-left":"25%"}} />
                                     <Form style={{'margin-top':'10%'}}>
                                         <InputGroup className="mb-3" style={{'width':'90%','margin-left':'5%'}}>
                                             <InputGroup.Text id="basic-addon1"><IoIosMail size={"2rem"}/></InputGroup.Text>
@@ -89,9 +103,19 @@ function Rec_pass(props)
                                             />
                                         </InputGroup>
                                     </Form>
-                                        <div id="dvLog">
-                                            <Button style={{"margin-left":"40%"}} variant="danger" id="btnSend" onClick={()=>EnviarCorreo()}>
-                                                Ingresar
+                                        <div id="dvLog" style={{"margin-left":"30%"}}>
+                                            <Button variant="danger" id="btnSend" onClick={()=>EnviarCorreo()}>
+                                                ENVIAR CORREO
+                                            </Button>
+                                            <Button variant="primary" disabled style={{'display':'none'}} id="btnCargando">
+                                                <Spinner
+                                                as="span"
+                                                animation="grow"
+                                                size="sm"
+                                                role="status"
+                                                aria-hidden="true"
+                                                />
+                                                Cargando...
                                             </Button>
                                         </div>
                             </Card.Body>
