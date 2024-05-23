@@ -39,11 +39,12 @@ function Rec_pass(props)
     }
     const EnviarCorreo=async()=>{
         Swal.fire({
-            title: 'Cargando!',
-            text: 'Do you want to continue',
-            icon: 'success',
-            confirmButtonText: 'Cool'
-          })
+            position: "top-center",
+            icon: "success",
+            title: "Se envio correctamente",
+            showConfirmButton: false,
+            timer: 1500
+          });
         await axios.get(baseUrl+`/${form.correo}`)
         .then(response=>{
           return response.data;

@@ -3,7 +3,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import Cookies from 'universal-cookie';
 import axios from 'axios';
 import Form from 'react-bootstrap/Form';
-import ThemeProvider from 'react-bootstrap/ThemeProvider';
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
@@ -20,7 +20,7 @@ import '../login/login.css'
 function Login(props)
 {
     const MySwal = withReactContent(Swal)
-    const baseUrl="http://10.20.2.98:5001/api/Usuarios";
+    const baseUrl="http://apicatsa.catsaconcretos.mx:2543/api/Usuarios/GetLogin";
     const cookies = new Cookies();
     const navigate = useNavigate();
     const [form, setForm]=useState({
@@ -45,40 +45,37 @@ function Login(props)
             navigate("/panel");
         }else{
             await axios.get(baseUrl+`/${form.username},${form.password}`)
-        .then(response=>{
-          return response.data;
-        }).then(response=>{
-          var obj = JSON.stringify(response);
-          if(obj.length>0){
-            obj = JSON.parse(obj);
-            console.log(obj);
-            var respuesta=obj;
-            cookies.set('id', respuesta.id_usuario, {path: '/'});
-            cookies.set('nombre', respuesta.nombre, {path: '/'});
-            cookies.set('username', respuesta.correo, {path: '/'});
-            cookies.set('password', respuesta.password, {path: '/'});
-            MySwal.fire({
-                title: <p>Bienvenido</p>,
-                didOpen: () => {
-                // `MySwal` is a subclass of `Swal` with all the same instance & static methods
-                MySwal.showLoading()
-            },
-            }).then(() => {
-                return MySwal.fire(<p>Bienvenido {respuesta.nombre}</p>)
-            })
-            navigate("/panel");
-            //props.history.push('/menu');
-          }else{
-            
-            alert('El usuario o la contraseña no son correctos');
-          }
+            .then(response=>{
+                return response.data;
+            }).then(response=>{
+            var obj = JSON.stringify(response);
+            if(obj.length>0){
+                obj = JSON.parse(obj);
+                console.log(obj);
+                var respuesta=obj;
+                cookies.set('id', respuesta.id_usuario, {path: '/'});
+                cookies.set('nombre', respuesta.nombre, {path: '/'});
+                cookies.set('username', respuesta.correo, {path: '/'});
+                cookies.set('password', respuesta.password, {path: '/'});
+                MySwal.fire({
+                    title: <p>Bienvenido</p>,
+                    didOpen: () => {
+                    // `MySwal` is a subclass of `Swal` with all the same instance & static methods
+                    MySwal.showLoading()
+                },
+                }).then(() => {
+                    return MySwal.fire(<p>Bienvenido {respuesta.nombre}</p>)
+                })
+                navigate("/panel");
+            }else{    
+                alert('El usuario o la contraseña no son correctos');
+            }
         })
-        
         .catch(error=>{
           console.log(error);
         })    
-        }
-      }
+    }
+    }
     useEffect(()=>{
         if(cookies.get('id')){
           navigate("/panel");
@@ -86,7 +83,6 @@ function Login(props)
     },[]);    
     return (
         <>
-        <ThemeProvider>
             <Container style={{"margin-top":"15%"}}>
                 <Row>
                     <Col xs={3} md={3}>
@@ -152,7 +148,6 @@ function Login(props)
                     </Col>
                 </Row>
             </Container>
-        </ThemeProvider>
         </>
     );
 }
