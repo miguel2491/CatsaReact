@@ -10,6 +10,9 @@ import ProtectedRoute from "./routes/ProtectedRoute.tsx";
 import Profile from "./routes/Profile.tsx";
 import Usuario from "./routes/Admin/Usuarios.tsx";
 import Ayuda from "./routes/Admin/Ayuda.tsx";
+import VerPedido from "./views/Pedidos/VerPedido.tsx";
+import LevantarPedido from "./views/Pedidos/LevantarPedido.tsx";
+import PedidoCan from "./routes/PedidoCan.tsx";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./index.css";
 
@@ -41,7 +44,20 @@ const router = createBrowserRouter([
       {
         path: "/ayuda",
         element: <Ayuda />,
+      },
+      {
+        path: "/levantarPedido",
+        element: <LevantarPedido />,
+      },
+      {
+        path: "/verPedido",
+        element: <VerPedido />,
+      },
+      {
+        path: "/pedidoCan",
+        element: <PedidoCan />,
       }
+
     ],
   },
 ]);

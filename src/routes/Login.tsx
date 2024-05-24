@@ -29,12 +29,16 @@ export default function Login() {
   const baseUrl="http://apicatsa.catsaconcretos.mx:2543/api/";
 
   useEffect(()=>{
+    
     if(cookies.get('idUsuario') == undefined)
       {
         console.log(cookies.get('idUsuario'))
         setTimeout(()=>{
           setIsLoading(false);
         }, 3000);
+      }else{
+        cookies.remove('token', {path: '/'});
+        cookies.remove('idUsuario', {path: '/'});
       }
   }, []);
 

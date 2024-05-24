@@ -18,7 +18,7 @@ export default function Dashboard() {
   const cookies = new Cookies();
   const navigate = useNavigate();
   const [value, setValue] = useState("");
-
+  
   async function createTodo() {
     if (value.length > 3) {
       try {
@@ -39,6 +39,7 @@ export default function Dashboard() {
   }
 
   useEffect(() => {
+    
     if(cookies.get('idUsuario') == undefined)
       {
         navigate('/');
@@ -57,6 +58,7 @@ export default function Dashboard() {
           <Row>
             {(cookies.get('rol') == 1 || cookies.get('rol') == 2) &&
               <Col xs={12} md={4}>
+                <Link to="/levantarPedido" style={{"text-decoration":"none"}}>
                 <div>
                   <Card
                     bg='primary'
@@ -72,16 +74,19 @@ export default function Dashboard() {
                     </Card.Body>
                   </Card>
                 </div>
+                </Link>
               </Col>
             }
             {(cookies.get('rol') == 1 || cookies.get('rol') == 2) &&
               <Col xs={12} md={4}>
+                  <Link to="/verPedido" style={{"text-decoration":"none"}}>
                   <Card
                     bg='warning'
                     text='Ver Pedido'
                     style={{ width: '18rem' }}
                     className="mb-2"
                   >
+                  
                   <Card.Body style={{"color":"white"}}>
                     <Card.Title className="text-center"> <FaEye style={{"fontSize":"4rem"}} /> </Card.Title>
                     <Card.Text className='text-center' style={{"fontSize":"12pt"}}>
@@ -89,6 +94,7 @@ export default function Dashboard() {
                     </Card.Text>
                   </Card.Body>
                 </Card>
+                </Link>
               </Col>
             }
             {(cookies.get('rol') == 1 || cookies.get('rol') == 2|| cookies.get('rol') == 3|| cookies.get('rol') == 4|| cookies.get('rol') == 9|| cookies.get('rol') == 21) &&
@@ -99,12 +105,14 @@ export default function Dashboard() {
                     style={{ width: '18rem' }}
                     className="mb-2"
                   >
+                  <Link to="/pedidoCan" style={{"text-decoration":"none"}}>
                   <Card.Body style={{"color":"white"}}>
                     <Card.Title className="text-center"> <MdBlock style={{"fontSize":"4rem"}} /> </Card.Title>
                     <Card.Text className='text-center' style={{"fontSize":"12pt"}}>
                       Pedido Cancelado
                     </Card.Text>
                   </Card.Body>
+                  </Link>
                 </Card>
               </Col>
             }

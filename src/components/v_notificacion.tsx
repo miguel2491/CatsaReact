@@ -1,6 +1,6 @@
 import { API_URL } from "../auth/authConstants";
 import { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+// import { Link, useNavigate } from "react-router-dom";
 import Cookies from 'universal-cookie';
 import Dropdown from 'react-bootstrap/Dropdown';
 import axios from 'axios';
@@ -9,7 +9,7 @@ import "../components/notificacion.css"
 
 export default function v_notificacion()
 {
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
     const cookies = new Cookies();
     const [noti, setNoti] = useState(0);
     const [list, setNotifica] = useState([]);
@@ -41,6 +41,7 @@ export default function v_notificacion()
     }
 
     useEffect(() => {  
+      
       const fetchData = async()=>{
         try{
           let confi_ax = 

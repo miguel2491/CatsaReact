@@ -109,13 +109,15 @@ export default function PortalLayout({ children }: PortalLayoutProps) {
     <Navbar collapseOnSelect expand="lg" style={{"background":"#000054", color:"red"}}>
             <Container fluid>
                 <Navbar.Brand style={{color:"white"}} href="#">
+                  <Link to="/dashboard">
                     <img src='../logo.png' style={{width:"60px"}} />
+                  </Link>
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="me-auto">
                     <Nav.Link href="#" style={{color:"white"}} className='text-center'>
-                      <Link to="/dashboard">
+                      <Link to="/dashboard" style={{"text-decoration":"none"}}>
                         ¡Hola! {cookies.get('nombre')}
                       </Link>
                     </Nav.Link>
