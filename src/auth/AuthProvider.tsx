@@ -1,5 +1,5 @@
 import { useContext, createContext, useState, useEffect } from "react";
-import type { AuthResponse, User, tokenSes } from "../types/types";
+import type { User, tokenSes } from "../types/types";
 import requestNewAccessToken from "./requestNewAccessToken";
 import { API_URL } from "./authConstants";
 
