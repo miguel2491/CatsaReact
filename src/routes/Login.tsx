@@ -32,7 +32,6 @@ export default function Login() {
     
     if(cookies.get('idUsuario') == undefined)
       {
-        console.log(cookies.get('idUsuario'))
         setTimeout(()=>{
           setIsLoading(false);
         }, 3000);
@@ -49,7 +48,7 @@ export default function Login() {
   
   if(cookies.get('token')==undefined)
   {
-    console.log("ENTRO");
+    console.log("TOKEN UNDEFINED");
     GeToken();
   }
   else if(cookies.get('idUsuario') != undefined)
@@ -63,7 +62,7 @@ export default function Login() {
       return <Navigate to="/dashboard" />;
     }
   }else{
-    console.log("ENTRO");
+    cookies.get('token');
   }
   
   function handleChange(e: React.ChangeEvent) {
@@ -166,20 +165,9 @@ export default function Login() {
           <Card.Body>
             <form onSubmit={handleSubmit} className="form">
               <Row>
-                <Col xs={6} md={4} className="dLogo">
-                  <div className="bg-white mt-4">
-                    <Row>
-                      <img src="icono_sl.png" className="img-fluid" id="logo" />
-                    </Row>
-                    <Row>
-                      <img src="titulo.png" className="img-fluid" />
-                    </Row>
-                      <div className="eula">Bienvenido, ingresa tus credenciales para iniciar</div>
-                  </div>
-                </Col>
-                <Col style={{'background':'#474A59'}} xs={6} md={4}>
+              <Col xs={12} md={6}>
                   {!!errorResponse && <div className="errorMessage">{errorResponse}</div>}
-                  <div className="dForm">
+                  <div className="dForm" style={{'background':'#474A59'}}>
                   <InputGroup className="mb-3" style={{'width':'90%'}}>
                     <InputGroup.Text id="basic-addon1"><FaUser /></InputGroup.Text>
                     <Form.Control
@@ -218,6 +206,19 @@ export default function Login() {
                   <div className="text-center mb-3 mt-3">
                       <Link to="/signup" style={{"color":"yellow"}}>¿Olvidaste tu contraseña?</Link>
                   </div>
+                  </div>
+                </Col>
+                <Col xs={12} md={6} className="dLogo">
+                  <div className="bg-white mt-4 dlWhite">
+                    <Row>
+                      <Col xs={12} md={12}>
+                        <img src="icono_sl.png" className="img-fluid" id="logo" />
+                      </Col>
+                      <Col xs={12} md={12} className="imgLetra">
+                        <img src="titulo.png" className="img-fluid_letra" />
+                      </Col>
+                    </Row>
+                    <div className="eula">Bienvenido, ingresa tus credenciales para iniciar</div>
                   </div>
                 </Col>
               </Row>

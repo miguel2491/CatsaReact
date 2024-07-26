@@ -1,6 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-import PortalLayout from "../layout/PortalLayout";
+import PortalLayout from "../layout/NavBarLeft";
 import { useAuth } from "../auth/AuthProvider";
 import { API_URL } from "../auth/authConstants";
 import Container from 'react-bootstrap/Container';
