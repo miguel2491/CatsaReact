@@ -52,73 +52,83 @@ export default function Dashboard() {
   }
  
   return (
-    <PortalLayout>
-      <Container>
-        <div className="dashboard">
-          <Row>
-            {(cookies.get('rol') == 1 || cookies.get('rol') == 2) &&
-              <Col xs={12} md={4}>
-                <Link to="/levantarPedido" style={{"text-decoration":"none"}}>
-                <div>
-                  <Card
-                    bg='primary'
-                    text='Ver Pedido'
-                    style={{ width: '18rem' }}
-                    className="mb-2"
-                  >
-                    <Card.Body style={{"color":"white"}}>
-                      <Card.Title className="text-center"> <FaBell style={{"fontSize":"4rem"}} /> </Card.Title>
-                      <Card.Text className='text-center' style={{"fontSize":"12pt"}}>
-                        Levantar Pedido
-                      </Card.Text>
-                    </Card.Body>
-                  </Card>
-                </div>
-                </Link>
-              </Col>
-            }
-            {(cookies.get('rol') == 1 || cookies.get('rol') == 2) &&
-              <Col xs={12} md={4}>
-                  <Link to="/verPedido" style={{"text-decoration":"none"}}>
-                  <Card
-                    bg='warning'
-                    text='Ver Pedido'
-                    style={{ width: '18rem' }}
-                    className="mb-2"
-                  >
-                  
-                  <Card.Body style={{"color":"white"}}>
-                    <Card.Title className="text-center"> <FaEye style={{"fontSize":"4rem"}} /> </Card.Title>
-                    <Card.Text className='text-center' style={{"fontSize":"12pt"}}>
-                      Ver Pedido
-                    </Card.Text>
-                  </Card.Body>
-                </Card>
-                </Link>
-              </Col>
-            }
-            {(cookies.get('rol') == 1 || cookies.get('rol') == 2|| cookies.get('rol') == 3|| cookies.get('rol') == 4|| cookies.get('rol') == 9|| cookies.get('rol') == 21) &&
-              <Col xs={12} md={4}>
-                  <Card
-                    bg='danger'
-                    text='Pedido Cancelado'
-                    style={{ width: '18rem' }}
-                    className="mb-2"
-                  >
-                  <Link to="/pedidoCan" style={{"text-decoration":"none"}}>
-                  <Card.Body style={{"color":"white"}}>
-                    <Card.Title className="text-center"> <MdBlock style={{"fontSize":"4rem"}} /> </Card.Title>
-                    <Card.Text className='text-center' style={{"fontSize":"12pt"}}>
-                      Pedido Cancelado
-                    </Card.Text>
-                  </Card.Body>
-                  </Link>
-                </Card>
-              </Col>
-            }
-          </Row>
-        </div>
+      <Container fluid>
+        <Row>
+          <Col xs lg="2" className="navbarL">
+            <PortalLayout />
+          </Col>
+          <Col xs lg md="auto">
+            <Row>
+              a
+            </Row>
+            <Row className="panel">
+              <div className="dashboard">
+                
+                {(cookies.get('rol') == 1 || cookies.get('rol') == 2) &&
+                  <Col xs={12} md={2}>
+                    <Link to="/levantarPedido" style={{"text-decoration":"none"}}>
+                    <div>
+                      <Card
+                        bg='primary'
+                        text='Ver Pedido'
+                        style={{ width: '18rem' }}
+                        className="mb-2"
+                      >
+                        <Card.Body style={{"color":"white"}}>
+                          <Card.Title className="text-center"> <FaBell style={{"fontSize":"4rem"}} /> </Card.Title>
+                          <Card.Text className='text-center' style={{"fontSize":"12pt"}}>
+                            Levantar Pedido
+                          </Card.Text>
+                        </Card.Body>
+                      </Card>
+                    </div>
+                    </Link>
+                  </Col>
+                }
+                {(cookies.get('rol') == 1 || cookies.get('rol') == 2) &&
+                  <Col xs={12} md={2}>
+                      <Link to="/verPedido" style={{"text-decoration":"none"}}>
+                      <Card
+                        bg='warning'
+                        text='Ver Pedido'
+                        style={{ width: '18rem' }}
+                        className="mb-2"
+                      >
+                      
+                      <Card.Body style={{"color":"white"}}>
+                        <Card.Title className="text-center"> <FaEye style={{"fontSize":"4rem"}} /> </Card.Title>
+                        <Card.Text className='text-center' style={{"fontSize":"12pt"}}>
+                          Ver Pedido
+                        </Card.Text>
+                      </Card.Body>
+                    </Card>
+                    </Link>
+                  </Col>
+                }
+                {(cookies.get('rol') == 1 || cookies.get('rol') == 2|| cookies.get('rol') == 3|| cookies.get('rol') == 4|| cookies.get('rol') == 9|| cookies.get('rol') == 21) &&
+                  <Col xs={12} md={4}>
+                      <Card
+                        bg='danger'
+                        text='Pedido Cancelado'
+                        style={{ width: '18rem' }}
+                        className="mb-2"
+                      >
+                      <Link to="/pedidoCan" style={{"text-decoration":"none"}}>
+                      <Card.Body style={{"color":"white"}}>
+                        <Card.Title className="text-center"> <MdBlock style={{"fontSize":"4rem"}} /> </Card.Title>
+                        <Card.Text className='text-center' style={{"fontSize":"12pt"}}>
+                          Pedido Cancelado
+                        </Card.Text>
+                      </Card.Body>
+                      </Link>
+                    </Card>
+                  </Col>
+                }
+              
+              </div>
+            </Row>
+          </Col>
+        </Row>
       </Container>
-    </PortalLayout>
   );
 }

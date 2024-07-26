@@ -23,3 +23,10 @@
     --bs-badge-padding-x:0 !important; 
     border-radius: 50px !important;
 }
+.navbarL{
+    background: #FFFFFF;
+    height: 100vh;
+}
+.panel{
+    height: 100vw;
+}
