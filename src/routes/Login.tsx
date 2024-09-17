@@ -166,18 +166,7 @@ export default function Login() {
           <Card.Body>
             <form onSubmit={handleSubmit} className="form">
               <Row>
-                <Col xs={6} md={4} className="dLogo">
-                  <div className="bg-white mt-4">
-                    <Row>
-                      <img src="icono_sl.png" className="img-fluid" id="logo" />
-                    </Row>
-                    <Row>
-                      <img src="titulo.png" className="img-fluid" />
-                    </Row>
-                      <div className="eula">Bienvenido, ingresa tus credenciales para iniciar</div>
-                  </div>
-                </Col>
-                <Col style={{'background':'#474A59'}} xs={6} md={4}>
+              <Col style={{'background':'#474A59'}} xs={12} md={6}>
                   {!!errorResponse && <div className="errorMessage">{errorResponse}</div>}
                   <div className="dForm">
                   <InputGroup className="mb-3" style={{'width':'90%'}}>
@@ -220,6 +209,18 @@ export default function Login() {
                   </div>
                   </div>
                 </Col>
+                <Col xs={12} md={6} lg={4} className="dLogo">
+                  <div className="bg-white mt-4">
+                    <Row>
+                      <img src="icono_sl.png" className="img-fluid" id="logo" />
+                    </Row>
+                    <Row>
+                      <img src="titulo.png" className="img-fluid" />
+                    </Row>
+                      <div className="eula">Bienvenido, ingresa tus credenciales para iniciar</div>
+                  </div>
+                </Col>
+                
               </Row>
           </form>
           <Row>
